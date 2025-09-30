@@ -6,6 +6,7 @@ import Clouds from "./assets/images/Illustrations/Wolk1.png";
 import Character from "./assets/images/Illustrations/Character.png";
 import Navbar from "./components/Navbar.jsx";
 import AboutMe from "./components/AboutMe.jsx";
+import SkillsTools from "./components/SkillsTools.jsx";
 import "./App.css";
 
 gsap.registerPlugin(Draggable, ScrollTrigger);
@@ -162,6 +163,7 @@ function App() {
 				</div>
 			</main>
 			<AboutMe />
+			<SkillsTools />
 		</>
 	);
 }

@@ -16,7 +16,8 @@ body {
 	margin: 0;
 	padding: 0;
 	background-image: url("./assets/images/Background/Bk-web-noise.png");
-	background-blend-mode: overlay;
+	background-attachment: fixed;
+	background-size: cover;
 	font-family: "Outfit", sans-serif;
 	min-height: 100vh;
 	overflow-x: hidden;
@@ -586,4 +587,79 @@ nav {
 .contact-button:hover {
 	background: black;
 	color: white;
+}
+/* Skills & Tools Section */
+.skills-section {
+	min-height: 100vh;
+	width: 100%;
+	padding: 80px 60px;
+	box-sizing: border-box;
+}
+
+.skills-main-title {
+	font-family: "Dx Lactos", sans-serif;
+	font-size: 48px;
+	margin: 0 0 80px 0;
+	color: black;
+	margin-left: 90px;
+}
+
+.skills-container {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 110px;
+	max-width: 1200px;
+	margin: 0 auto;
+}
+
+.skills-column {
+	display: flex;
+	flex-direction: column;
+	gap: 30px;
+}
+
+.column-title {
+	font-family: "Dx Lactos", sans-serif;
+	font-size: 36px;
+	margin: 0;
+	color: black;
+	letter-spacing: 2px;
+}
+
+.skills-card {
+	background: rgba(255, 255, 255, 0.9);
+	border-radius: 40px;
+	width: 490px;
+	height: 400px;
+	padding: 50px 40px;
+	display: flex;
+	flex-direction: column;
+	gap: 30px;
+}
+
+.card-title {
+	font-family: "Outfit", sans-serif;
+	font-size: 20px;
+	font-weight: 900;
+	margin: 0 0 15px 0;
+	color: black;
+}
+
+.skills-tags {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 12px;
+}
+
+.skill-tag {
+	background: black;
+	color: white;
+	border-radius: 50px;
+	width: auto;
+	height: auto;
+	padding: 5px 15px;
+	font-family: "Outfit", sans-serif;
+	font-size: 14px;
+	font-weight: 500;
+	white-space: nowrap;
 }
