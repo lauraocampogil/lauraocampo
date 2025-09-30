@@ -1,11 +1,12 @@
 import Logo from "../assets/images/Favicon/Logo-LO-white.png";
+import { navLinks } from "../../constants/index.js";
 function Navbar() {
 	return (
-		<nav>
+		<nav className="navbar">
 			<div>
 				<p>2025.</p>
 				<a href="#home">
-					<img src={Logo} alt="logo" />
+					<img src={Logo} alt="logo" className="logo" />
 					<p>campo</p>
 				</a>
 				<ul>
