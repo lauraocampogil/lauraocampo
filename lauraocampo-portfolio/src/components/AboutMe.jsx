@@ -26,7 +26,9 @@ function AboutMe() {
 						tool, a coding language, or ways to make an impact with my work.
 					</p>
 
-					<button className="contact-button">Contact me</button>
+					<a href="#contact">
+						<button className="contact-button">Contact me</button>
+					</a>
 				</div>
 			</div>
 		</section>

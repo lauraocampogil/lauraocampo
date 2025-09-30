@@ -30,6 +30,17 @@ main {
 	overflow: hidden;
 }
 /* Navbar Styles */
+.navbar-blur-backdrop {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 140px;
+	backdrop-filter: blur(10px);
+	-webkit-backdrop-filter: blur(10px);
+	z-index: 99;
+	pointer-events: none;
+}
 nav {
 	display: flex;
 	justify-content: space-between;
@@ -675,7 +686,7 @@ nav {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	margin-bottom: 60px;
+	margin-bottom: 50px;
 	max-width: 1200px;
 	margin-left: auto;
 	margin-right: auto;
@@ -1017,13 +1028,14 @@ nav {
 }
 
 .contact-form button {
-	padding: 18px 50px;
 	background: white;
 	color: black;
 	border: none;
 	border-radius: 50px;
+	width: 220px;
+	height: 50px;
 	font-family: "Outfit", sans-serif;
-	font-size: 18px;
+	font-size: 20px;
 	font-weight: 600;
 	cursor: pointer;
 	transition: all 0.3s ease;
@@ -1031,14 +1043,9 @@ nav {
 	margin-top: 20px;
 }
 
-.contact-form button:hover:not(:disabled) {
-	transform: translateY(-2px);
-	box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-}
-
-.contact-form button:disabled {
-	opacity: 0.6;
-	cursor: not-allowed;
+.contact-form button:hover {
+	background: black;
+	color: white;
 }
 
 .success-message {

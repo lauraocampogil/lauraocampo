@@ -19,40 +19,43 @@ function Navbar() {
 	};
 
 	return (
-		<nav className="navbar">
-			<div className="navbar-left">
-				<p>2025.</p>
-			</div>
-
-			<div className="navbar-center">
-				<a href="#home">
-					<img src={Logo} alt="logo" className="logo" />
-				</a>
-			</div>
-
-			<div className="navbar-right">
-				<button className={`menu-button ${menuOpen ? "active" : ""}`} onClick={handleMenuToggle}>
-					Menu
-					<div className="menu-icon">
-						<span></span>
-						<span></span>
-						<span></span>
-					</div>
-				</button>
-			</div>
-
-			{menuOpen && (
-				<div className={`desktop-menu ${isClosing ? "closing" : "open"}`}>
-					<ul>
-						{navLinks.map((link) => (
-							<li key={link.id}>
-								<a href={link.id}>{link.name}</a>
-							</li>
-						))}
-					</ul>
+		<>
+			<div className="navbar-blur-backdrop"></div>
+			<nav className="navbar">
+				<div className="navbar-left">
+					<p>2025.</p>
 				</div>
-			)}
-		</nav>
+
+				<div className="navbar-center">
+					<a href="/">
+						<img src={Logo} alt="logo" className="logo" />
+					</a>
+				</div>
+
+				<div className="navbar-right">
+					<button className={`menu-button ${menuOpen ? "active" : ""}`} onClick={handleMenuToggle}>
+						Menu
+						<div className="menu-icon">
+							<span></span>
+							<span></span>
+							<span></span>
+						</div>
+					</button>
+				</div>
+
+				{menuOpen && (
+					<div className={`desktop-menu ${isClosing ? "closing" : "open"}`}>
+						<ul>
+							{navLinks.map((link) => (
+								<li key={link.id}>
+									<a href={link.id}>{link.name}</a>
+								</li>
+							))}
+						</ul>
+					</div>
+				)}
+			</nav>
+		</>
 	);
 }
 
