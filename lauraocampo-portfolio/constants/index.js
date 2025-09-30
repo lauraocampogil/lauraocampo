@@ -56,3 +56,14 @@ export const projects = [
 		link: "#",
 	},
 ];
+export const developerSkills = {
+	frontend: ["HTML", "CSS", "Javascript", "Swift", "Vue", "React"],
+	backend: ["Python", "Kotlin"],
+};
+
+export const designerSkills = {
+	softwares: ["Photoshop", "Illustrator", "Indesign", "Adobe XD", "Figma"],
+	marketing: ["Analytics", "Hotjar", "SEO"],
+};
+
+export const traits = ["Positive", "Team spirit", "Adaptability", "Creative", "Friendly"];

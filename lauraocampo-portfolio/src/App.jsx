@@ -8,6 +8,8 @@ import Navbar from "./components/Navbar.jsx";
 import AboutMe from "./components/AboutMe.jsx";
 import SkillsTools from "./components/SkillsTools.jsx";
 import Projects from "./components/Projects.jsx";
+import Objectives from "./components/Objectives.jsx";
+import Contact from "./components/Contact.jsx";
 import "./App.css";
 
 gsap.registerPlugin(Draggable, ScrollTrigger);
@@ -166,6 +168,8 @@ function App() {
 			<AboutMe />
 			<SkillsTools />
 			<Projects />
+			<Objectives />
+			<Contact />
 		</>
 	);
 }

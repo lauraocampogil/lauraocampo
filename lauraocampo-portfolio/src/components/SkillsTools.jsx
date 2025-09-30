@@ -1,14 +1,6 @@
+import { developerSkills } from "../../constants/index.js";
+import { designerSkills } from "../../constants/index.js";
 function SkillsTools() {
-	const developerSkills = {
-		frontend: ["HTML", "CSS", "Javascript", "Swift", "Vue", "React"],
-		backend: ["Python", "Kotlin"],
-	};
-
-	const designerSkills = {
-		softwares: ["Photoshop", "Illustrator", "Indesign", "Adobe XD", "Figma"],
-		marketing: ["Analytics", "Hotjar", "SEO"],
-	};
-
 	return (
 		<section id="skills" className="skills-section">
 			<h2 className="skills-main-title">Skills & Tools</h2>

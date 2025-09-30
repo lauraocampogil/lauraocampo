@@ -657,9 +657,9 @@ nav {
 	border-radius: 50px;
 	width: auto;
 	height: auto;
-	padding: 5px 15px;
+	padding: 10px 24px;
 	font-family: "Outfit", sans-serif;
-	font-size: 14px;
+	font-size: 16px;
 	font-weight: 500;
 	white-space: nowrap;
 }
@@ -836,4 +836,226 @@ nav {
 .arrow-circle svg {
 	width: 16px;
 	height: 16px;
+}
+/* Objectives Section */
+.objective-section {
+	min-height: 100vh;
+	width: 100%;
+	padding: 80px 60px;
+	box-sizing: border-box;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.objective-container {
+	max-width: 1200px;
+	width: 100%;
+	display: grid;
+	grid-template-columns: 0.8fr 1.2fr;
+	align-items: center;
+}
+
+.objective-left {
+	display: flex;
+	flex-direction: column;
+	gap: 100px;
+}
+
+.objective-title {
+	font-family: "Dx Lactos", sans-serif;
+	font-size: 48px;
+	margin: 0;
+	color: black;
+	line-height: 1;
+}
+
+.objective-image img {
+	width: 152px;
+	height: 532px;
+	margin-left: 3rem;
+}
+
+.objective-right {
+	display: flex;
+	align-items: center;
+}
+
+.objective-card {
+	background: rgba(255, 255, 255, 0.9);
+	border-radius: 40px;
+	padding: 50px;
+	display: flex;
+	flex-direction: column;
+	gap: 30px;
+	box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+}
+
+.objective-traits {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 12px;
+}
+
+.trait-tag {
+	background: black;
+	color: white;
+	border-radius: 50px;
+	padding: 10px 24px;
+	font-family: "Outfit", sans-serif;
+	font-size: 16px;
+	font-weight: 500;
+}
+
+.objective-content {
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
+}
+
+.objective-content p {
+	font-family: "Outfit", sans-serif;
+	font-size: 18px;
+	line-height: 1.6;
+	color: black;
+	margin: 0;
+}
+
+.objective-content strong {
+	font-weight: 700;
+}
+
+/* Contact Section */
+.contact-section {
+	min-height: 100vh;
+	background-color: #c5d6f5;
+	width: 100%;
+	padding: 80px 60px;
+	box-sizing: border-box;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+
+.contact-container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 50px;
+}
+
+.contact-title {
+	font-family: "Dx Lactos", sans-serif;
+	font-size: 72px;
+	margin: 0;
+	color: black;
+	text-align: center;
+	margin-bottom: 2rem;
+}
+.contact-form {
+	width: 970px;
+	min-height: 580px;
+	background: #e7e9fa;
+	border-radius: 40px;
+	padding: 60px 70px;
+	box-sizing: border-box;
+	display: flex;
+	flex-direction: column;
+	gap: 30px;
+}
+
+.form-row {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 30px;
+}
+
+.form-group {
+	display: flex;
+	flex-direction: column;
+	gap: 12px;
+}
+
+.form-group.full-width {
+	grid-column: 1 / -1;
+}
+
+.form-group label {
+	font-family: "Outfit", sans-serif;
+	font-size: 16px;
+	font-weight: 600;
+	color: black;
+}
+
+.form-group input,
+.form-group textarea {
+	padding: 18px 24px;
+	border: none;
+	border-radius: 20px;
+	font-family: "Outfit", sans-serif;
+	font-size: 16px;
+	background: white;
+	transition: all 0.3s ease;
+	color: #666;
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+	color: #999;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+	outline: none;
+	box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.1);
+}
+
+.form-group textarea {
+	resize: none;
+	min-height: 150px;
+}
+
+.contact-form button {
+	padding: 18px 50px;
+	background: white;
+	color: black;
+	border: none;
+	border-radius: 50px;
+	font-family: "Outfit", sans-serif;
+	font-size: 18px;
+	font-weight: 600;
+	cursor: pointer;
+	transition: all 0.3s ease;
+	align-self: center;
+	margin-top: 20px;
+}
+
+.contact-form button:hover:not(:disabled) {
+	transform: translateY(-2px);
+	box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.contact-form button:disabled {
+	opacity: 0.6;
+	cursor: not-allowed;
+}
+
+.success-message {
+	width: 970px;
+	min-height: 580px;
+	background: #e7e9fa;
+	border-radius: 40px;
+	padding: 60px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+}
+
+.success-message p {
+	font-family: "Outfit", sans-serif;
+	font-size: 24px;
+	color: black;
+	margin: 0;
 }
