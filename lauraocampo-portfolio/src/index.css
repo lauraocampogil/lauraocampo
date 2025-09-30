@@ -326,20 +326,10 @@ nav {
 	right: 20%;
 }
 
-/* Character at bottom */
-.character {
-	position: absolute;
-	bottom: -10%;
-	left: 50%;
-	transform: translateX(-50%);
-	width: 150px;
-	height: auto;
-	z-index: 5;
-}
 /* Hero content container */
 .hero-text {
 	position: absolute;
-	top: 45%;
+	top: 40%;
 	left: 50%;
 	transform: translate(-50%, -50%);
 	text-align: center;
@@ -366,4 +356,133 @@ nav {
 
 .hero-title span {
 	font-size: 72px;
+}
+
+/* Character at bottom */
+.character-container {
+	position: absolute;
+	bottom: -15%;
+	left: 50%;
+	transform: translateX(-50%);
+	width: 150px;
+	height: 600px;
+	z-index: 5;
+}
+.character {
+	width: 150px;
+	height: auto;
+	position: relative;
+	z-index: 1;
+}
+.character-area {
+	position: absolute;
+	cursor: pointer;
+	z-index: 10;
+	transition: none;
+}
+.character-area:hover {
+	background-color: rgba(0, 0, 0, 0.1);
+	border-radius: 50%;
+}
+
+/* Posiciones de cada área del cuerpo */
+.head-area {
+	top: 5px;
+	left: 50%;
+	transform: translateX(-50%);
+	width: 55px;
+	height: 70px;
+}
+
+.chest-area {
+	top: 85px;
+	left: 50%;
+	transform: translateX(-50%);
+	width: 65px;
+	height: 70px;
+}
+
+.left-arm-area {
+	top: 95px;
+	left: 5px;
+	width: 35px;
+	height: 90px;
+}
+
+.right-arm-area {
+	top: 95px;
+	right: 5px;
+	width: 35px;
+	height: 90px;
+}
+
+.legs-area {
+	top: 210px;
+	left: 50%;
+	transform: translateX(-50%);
+	width: 55px;
+	height: 180px;
+}
+
+/* Círculos de hover */
+.hover-circle {
+	position: absolute;
+	background-color: rgba(0, 0, 0, 0.8);
+	color: white;
+	width: 140px;
+	height: 140px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border-radius: 50%;
+	font-family: "Outfit", sans-serif;
+	font-size: 16px;
+	font-weight: 500;
+	z-index: 15;
+	pointer-events: none;
+	left: 50%;
+	text-align: center;
+	line-height: 1.2;
+}
+
+.about-circle {
+	top: 10px;
+	transform: translateX(-50%);
+}
+
+.skills-circle {
+	top: 90px;
+	transform: translateX(-50%);
+}
+
+.projects-circle {
+	top: 100px;
+	transform: translateX(-50%);
+}
+
+.objectives-circle {
+	top: 260px;
+	transform: translateX(-50%);
+}
+
+/* Click instruction */
+.click-instruction {
+	position: absolute;
+	top: 20px;
+	left: -200px;
+	font-family: "Outfit", sans-serif;
+	font-size: 24px;
+	color: black;
+	z-index: 20;
+	opacity: 0;
+}
+.click-instruction p {
+	margin: 0;
+	font-weight: 600;
+}
+
+.arrow-pointer {
+	position: absolute;
+	top: 30px;
+	left: 120px;
 }

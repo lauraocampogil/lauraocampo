@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
 import { Draggable } from "gsap/Draggable";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -13,6 +13,8 @@ function App() {
 	const cloudsRef = useRef([]);
 	const heroTextRef = useRef(null);
 	const heroSectionRef = useRef(null);
+	const clickInstructionRef = useRef(null);
+	const [hoveredPart, setHoveredPart] = useState(null);
 
 	useEffect(() => {
 		// Hacer las nubes arrastrables
@@ -55,18 +57,17 @@ function App() {
 					}
 				});
 
+				// Hacer aparecer el texto "Developer & Designer"
 				if (heroTextRef.current) {
 					let textOpacity = 0;
 
-					// Texto aparece completamente negro entre 10% y 30% del scroll
-					if (progress >= 0.1 && progress <= 0.3) {
+					if (progress >= 0.1 && progress <= 0.25) {
 						textOpacity = 1;
 					} else if (progress < 0.1) {
-						// Transición rápida de 0 a 1
 						textOpacity = progress * 10;
 					} else if (progress > 0.25) {
-						// Cambia 0.3 por 0.25
-						textOpacity = Math.max(1 - (progress - 0.25) * 3, 0);
+						// DESAPARECE después del 25%
+						textOpacity = Math.max(1 - (progress - 0.25) * 4, 0);
 					}
 
 					gsap.to(heroTextRef.current, {
@@ -75,14 +76,33 @@ function App() {
 						duration: 0,
 					});
 				}
+
+				// "Click on me" aparece después de que el texto grande desaparezca
+				if (clickInstructionRef.current) {
+					let clickOpacity = 0;
+
+					if (progress >= 0.35 && progress <= 0.8) {
+						clickOpacity = 1;
+					} else if (progress < 0.35 && progress >= 0.3) {
+						clickOpacity = (progress - 0.3) * 20;
+					}
+
+					gsap.to(clickInstructionRef.current, {
+						opacity: clickOpacity,
+						duration: 0,
+					});
+				}
 			},
 		});
 
 		return () => {
 			ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
-			Draggable.get(cloudsRef.current)?.forEach((draggable) => draggable?.kill());
 		};
 	}, []);
+
+	const handlePartClick = (section) => {
+		document.getElementById(section)?.scrollIntoView({ behavior: "smooth" });
+	};
 
 	return (
 		<>
@@ -90,18 +110,11 @@ function App() {
 			<main ref={heroSectionRef}>
 				<div className="hero-content">
 					<div className="clouds">
-						{/* Nubes izquierda */}
 						<img ref={(el) => (cloudsRef.current[0] = el)} src={Clouds} alt="cloud" className="cloud cloud-1" />
 						<img ref={(el) => (cloudsRef.current[1] = el)} src={Clouds} alt="cloud" className="cloud cloud-2" />
-
-						{/* Nubes derecha */}
 						<img ref={(el) => (cloudsRef.current[2] = el)} src={Clouds} alt="cloud" className="cloud cloud-3" />
 						<img ref={(el) => (cloudsRef.current[3] = el)} src={Clouds} alt="cloud" className="cloud cloud-4" />
-
-						{/* Nubes izquierda abajo */}
 						<img ref={(el) => (cloudsRef.current[4] = el)} src={Clouds} alt="cloud" className="cloud cloud-5" />
-
-						{/* Nubes derecha abajo */}
 						<img ref={(el) => (cloudsRef.current[5] = el)} src={Clouds} alt="cloud" className="cloud cloud-6" />
 					</div>
 
@@ -116,7 +129,35 @@ function App() {
 						</h1>
 					</div>
 
-					<img src={Character} alt="character" className="character" />
+					<div className="character-container">
+						<img src={Character} alt="character" className="character" />
+
+						{/* Áreas interactivas */}
+						<div className="character-area head-area" onMouseEnter={() => setHoveredPart("about")} onMouseLeave={() => setHoveredPart(null)} onClick={() => handlePartClick("about")} />
+						<div className="character-area chest-area" onMouseEnter={() => setHoveredPart("skills")} onMouseLeave={() => setHoveredPart(null)} onClick={() => handlePartClick("skills")} />
+						<div className="character-area left-arm-area" onMouseEnter={() => setHoveredPart("projects")} onMouseLeave={() => setHoveredPart(null)} onClick={() => handlePartClick("projects")} />
+						<div className="character-area right-arm-area" onMouseEnter={() => setHoveredPart("projects")} onMouseLeave={() => setHoveredPart(null)} onClick={() => handlePartClick("projects")} />
+						<div className="character-area legs-area" onMouseEnter={() => setHoveredPart("objectives")} onMouseLeave={() => setHoveredPart(null)} onClick={() => handlePartClick("objective")} />
+
+						{/* Círculos de hover */}
+						{hoveredPart && (
+							<div className={`hover-circle ${hoveredPart}-circle`}>
+								{hoveredPart === "about" && "About me"}
+								{hoveredPart === "skills" && "Skills & Tools"}
+								{hoveredPart === "projects" && "Projects"}
+								{hoveredPart === "objectives" && "Objectives"}
+							</div>
+						)}
+
+						{/* Click on me text */}
+						<div ref={clickInstructionRef} className="click-instruction">
+							<p>Click on me</p>
+							<svg className="arrow-pointer" width="100" height="80" viewBox="0 0 100 80">
+								<path d="M 10 10 Q 40 5, 60 25 T 85 55" stroke="black" strokeWidth="2" fill="none" />
+								<polygon points="85,55 80,50 90,48" fill="black" />
+							</svg>
+						</div>
+					</div>
 				</div>
 			</main>
 		</>
