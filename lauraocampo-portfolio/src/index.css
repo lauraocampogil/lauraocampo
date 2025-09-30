@@ -486,3 +486,104 @@ nav {
 	top: 30px;
 	left: 120px;
 }
+/* About Me Section */
+.about-section {
+	min-height: 100vh;
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 80px 60px;
+	box-sizing: border-box;
+}
+
+.about-container {
+	max-width: 1200px;
+	width: 100%;
+	display: grid;
+	grid-template-columns: 1fr 1.5fr;
+	gap: 10px;
+	align-items: center;
+}
+
+.about-left {
+	display: flex;
+	flex-direction: column;
+	gap: 100px;
+}
+
+.about-title {
+	font-family: "Dx Lactos", sans-serif;
+	font-size: 48px;
+	margin: 0;
+	color: black;
+	margin-top: -10rem;
+}
+
+.about-image img {
+	width: auto;
+	height: 200px;
+	margin-left: 3rem;
+}
+
+.icon-circle {
+	width: 100%;
+	height: 100%;
+}
+
+.about-right {
+	display: flex;
+	flex-direction: column;
+	gap: 30px;
+}
+
+.about-tags {
+	display: flex;
+	gap: 15px;
+	flex-wrap: wrap;
+}
+
+.tag {
+	background: transparent;
+	border: 2px solid black;
+	border-radius: 50px;
+	width: auto;
+	height: auto;
+	padding: 5px 15px;
+	font-family: "Outfit", sans-serif;
+	font-size: 14px;
+	color: black;
+}
+
+.about-text {
+	font-family: "Outfit", sans-serif;
+	font-size: 18px;
+	line-height: 1.6;
+	color: black;
+	margin: 0;
+}
+
+.about-text strong {
+	font-family: "Dx Lactos", sans-serif;
+	font-size: 32px;
+}
+
+.contact-button {
+	background: white;
+	border: none;
+	border-radius: 50px;
+	width: 220px;
+	height: 50px;
+	font-family: "Outfit", sans-serif;
+	font-size: 20px;
+	font-weight: 600;
+	color: black;
+	cursor: pointer;
+	transition: all 0.3s ease;
+	align-self: flex-start;
+}
+
+.contact-button:hover {
+	background: black;
+	color: white;
+}

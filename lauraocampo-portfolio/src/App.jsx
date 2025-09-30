@@ -5,6 +5,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Clouds from "./assets/images/Illustrations/Wolk1.png";
 import Character from "./assets/images/Illustrations/Character.png";
 import Navbar from "./components/Navbar.jsx";
+import AboutMe from "./components/AboutMe.jsx";
 import "./App.css";
 
 gsap.registerPlugin(Draggable, ScrollTrigger);
@@ -160,6 +161,7 @@ function App() {
 					</div>
 				</div>
 			</main>
+			<AboutMe />
 		</>
 	);
 }
