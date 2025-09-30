@@ -663,3 +663,177 @@ nav {
 	font-weight: 500;
 	white-space: nowrap;
 }
+/* Projects Section */
+.projects-section {
+	min-height: 100vh;
+	width: 100%;
+	padding: 80px 60px;
+	box-sizing: border-box;
+}
+
+.projects-header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-bottom: 60px;
+	max-width: 1200px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.projects-title {
+	font-family: "Dx Lactos", sans-serif;
+	font-size: 48px;
+	margin: 0;
+	color: black;
+}
+
+.slider-controls {
+	display: flex;
+	gap: 15px;
+}
+
+.slider-btn {
+	width: 60px;
+	height: 60px;
+	border-radius: 50%;
+	border: 2px solid black;
+	background: transparent;
+	cursor: pointer;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	transition: all 0.3s ease;
+}
+
+.slider-btn:hover:not(:disabled) {
+	background: black;
+	color: white;
+}
+
+.slider-btn:disabled {
+	opacity: 0.3;
+	cursor: not-allowed;
+}
+
+.projects-slider-container {
+	max-width: 1320px;
+	margin: 0 auto;
+	overflow: hidden;
+}
+
+.projects-slider {
+	display: flex;
+	gap: 30px;
+	transition: transform 0.5s ease-in-out;
+}
+
+.project-card {
+	min-width: 400px;
+	width: 400px;
+	height: 600px;
+	background: #f6f6f7;
+	border-radius: 30px;
+	padding: 30px;
+	box-sizing: border-box;
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
+	flex-shrink: 0;
+}
+
+.project-tags {
+	display: flex;
+	gap: 10px;
+}
+
+.project-tag {
+	background: transparent;
+	border: 2px solid black;
+	border-radius: 50px;
+	padding: 8px 20px;
+	font-family: "Outfit", sans-serif;
+	font-size: 14px;
+	color: black;
+}
+
+.project-card-title {
+	font-family: "Outfit", sans-serif;
+	font-size: 28px;
+	font-weight: semi-bold;
+	margin: 0;
+	color: black;
+}
+
+.project-description {
+	font-family: "Outfit", sans-serif;
+	font-size: 14px;
+	line-height: 1.5;
+	color: black;
+	margin: 0;
+	flex-grow: 1;
+}
+
+.project-image-container {
+	width: 340px;
+	height: 325px;
+	border-radius: 20px;
+	overflow: hidden;
+	position: relative;
+}
+
+.project-image {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+.see-more-btn {
+	position: absolute;
+	bottom: 20px;
+	left: 20px;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	width: 180px;
+	height: 40px;
+	background: rgba(255, 255, 255, 0.25);
+	backdrop-filter: blur(10px);
+	-webkit-backdrop-filter: blur(10px);
+	border: 1px solid rgba(255, 255, 255, 0.4);
+	border-radius: 50px;
+	padding: 0 4px 0 20px;
+	color: white;
+	text-decoration: none;
+	font-family: "Outfit", sans-serif;
+	font-size: 16px;
+	font-weight: 500;
+	transition: all 0.3s ease;
+	box-sizing: border-box;
+}
+
+.see-more-btn:hover {
+	background: rgba(255, 255, 255, 0.35);
+	transform: translateY(-2px);
+}
+
+.see-more-btn span {
+	color: black;
+	font-weight: 600;
+}
+
+.arrow-circle {
+	width: 32px;
+	height: 32px;
+	background: black;
+	border-radius: 50%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-shrink: 0;
+}
+
+.arrow-circle svg {
+	width: 16px;
+	height: 16px;
+}
