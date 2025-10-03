@@ -632,12 +632,11 @@ nav {
 .skills-card {
 	background: rgba(255, 255, 255, 0.9);
 	border-radius: 40px;
-	width: 490px;
-	height: 400px;
+	width: 420px;
+	height: 350px;
 	padding: 50px 40px;
 	display: flex;
 	flex-direction: column;
-	gap: 30px;
 }
 
 .card-title {
@@ -652,6 +651,7 @@ nav {
 	display: flex;
 	flex-wrap: wrap;
 	gap: 12px;
+	margin-bottom: 70px;
 }
 
 .skill-tag {
@@ -862,7 +862,8 @@ nav {
 .objective-left {
 	display: flex;
 	flex-direction: column;
-	gap: 100px;
+	gap: 40px;
+	padding-right: 80px;
 }
 
 .objective-title {
@@ -871,12 +872,13 @@ nav {
 	margin: 0;
 	color: black;
 	line-height: 1;
+	margin-bottom: 50px;
 }
 
 .objective-image img {
-	width: 152px;
-	height: 532px;
-	margin-left: 3rem;
+	width: 130px;
+	height: 500px;
+	margin-left: 4rem;
 }
 
 .objective-right {
@@ -887,11 +889,12 @@ nav {
 .objective-card {
 	background: rgba(255, 255, 255, 0.9);
 	border-radius: 40px;
-	padding: 50px;
+	padding: 40px;
 	display: flex;
 	flex-direction: column;
 	gap: 30px;
 	box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+	margin-top: 100px;
 }
 
 .objective-traits {
@@ -908,6 +911,7 @@ nav {
 	font-family: "Outfit", sans-serif;
 	font-size: 16px;
 	font-weight: 500;
+	white-space: nowrap;
 }
 
 .objective-content {
