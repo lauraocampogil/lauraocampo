@@ -173,12 +173,13 @@ nav {
 /* Menu */
 .desktop-menu {
 	position: fixed;
-	top: 140px;
+	top: 140px; /* Justo debajo del botón */
 	right: 140px;
 	z-index: 100;
 	display: flex;
 	flex-direction: column;
 	gap: 15px;
+	transform-origin: top center;
 }
 
 .desktop-menu ul {
@@ -192,74 +193,76 @@ nav {
 
 .desktop-menu li {
 	opacity: 0;
-	transform: translateX(50px);
+	transform: translateY(-20px);
 }
 
+/* Animación de entrada - de arriba hacia abajo */
 .desktop-menu.open li {
-	animation: slideInBounce 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards;
+	animation: slideDownFade 0.4s ease-out forwards;
 }
 
 .desktop-menu.open li:nth-child(1) {
 	animation-delay: 0s;
 }
 .desktop-menu.open li:nth-child(2) {
-	animation-delay: 0.1s;
+	animation-delay: 0.05s;
 }
 .desktop-menu.open li:nth-child(3) {
-	animation-delay: 0.2s;
+	animation-delay: 0.1s;
 }
 .desktop-menu.open li:nth-child(4) {
-	animation-delay: 0.3s;
+	animation-delay: 0.15s;
 }
 .desktop-menu.open li:nth-child(5) {
-	animation-delay: 0.4s;
+	animation-delay: 0.2s;
 }
 .desktop-menu.open li:nth-child(6) {
-	animation-delay: 0.5s;
+	animation-delay: 0.25s;
 }
 
+/* Animación de salida - de abajo hacia arriba (orden inverso) */
 .desktop-menu.closing li {
-	animation: slideOutBounce 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards;
+	animation: slideUpFade 0.4s ease-in forwards;
 }
 
 .desktop-menu.closing li:nth-child(1) {
-	animation-delay: 0s;
+	animation-delay: 0.25s;
 }
 .desktop-menu.closing li:nth-child(2) {
-	animation-delay: 0.1s;
-}
-.desktop-menu.closing li:nth-child(3) {
 	animation-delay: 0.2s;
 }
+.desktop-menu.closing li:nth-child(3) {
+	animation-delay: 0.15s;
+}
 .desktop-menu.closing li:nth-child(4) {
-	animation-delay: 0.3s;
+	animation-delay: 0.1s;
 }
 .desktop-menu.closing li:nth-child(5) {
-	animation-delay: 0.4s;
+	animation-delay: 0.05s;
 }
 .desktop-menu.closing li:nth-child(6) {
-	animation-delay: 0.5s;
+	animation-delay: 0s;
 }
 
-@keyframes slideInBounce {
+@keyframes slideDownFade {
 	0% {
 		opacity: 0;
-		transform: translateX(50px);
+		transform: translateY(-20px);
 	}
 	100% {
 		opacity: 1;
-		transform: translateX(0);
+		transform: translateY(0);
 	}
 }
 
-@keyframes slideOutBounce {
+@keyframes slideUpFade {
 	0% {
 		opacity: 1;
-		transform: translateX(0);
+		transform: translateY(0);
 	}
 	100% {
 		opacity: 0;
-		transform: translateX(50px);
+		transform: translateY(-20px);
 	}
 }
 

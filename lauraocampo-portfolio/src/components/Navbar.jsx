@@ -18,6 +18,17 @@ function Navbar() {
 		}
 	};
 
+	const handleLinkClick = () => {
+		// Close the menu when a link is clicked
+		if (menuOpen) {
+			setIsClosing(true);
+			setTimeout(() => {
+				setMenuOpen(false);
+				setIsClosing(false);
+			}, 800);
+		}
+	};
+
 	return (
 		<>
 			<div className="navbar-blur-backdrop"></div>
@@ -48,7 +59,9 @@ function Navbar() {
 						<ul>
 							{navLinks.map((link) => (
 								<li key={link.id}>
-									<a href={link.id}>{link.name}</a>
+									<a href={link.id} onClick={handleLinkClick}>
+										{link.name}
+									</a>
 								</li>
 							))}
 						</ul>
