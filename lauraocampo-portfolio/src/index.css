@@ -27,7 +27,9 @@ main {
 	min-height: 100vh;
 	width: 100%;
 	padding-top: 250px;
+	padding-bottom: 300px;
 	overflow: hidden;
+	margin-bottom: 10vh;
 }
 /* Navbar Styles */
 .navbar-blur-backdrop {
@@ -312,12 +314,12 @@ nav {
 
 /* Posiciones EXACTAS como en tu imagen 1 */
 .cloud-1 {
-	top: 20%;
+	top: 15%;
 	left: 10%;
 }
 
 .cloud-2 {
-	top: 35%;
+	top: 30%;
 	left: 35%;
 }
 
@@ -327,24 +329,24 @@ nav {
 }
 
 .cloud-4 {
-	top: 37%;
+	top: 32%;
 	right: 5%;
 }
 
 .cloud-5 {
-	bottom: 30%;
+	bottom: 45%;
 	left: 10%;
 }
 
 .cloud-6 {
-	bottom: 25%;
+	bottom: 43%;
 	right: 20%;
 }
 
 /* Hero content container */
 .hero-text {
 	position: absolute;
-	top: 40%;
+	top: 30%;
 	left: 50%;
 	transform: translate(-50%, -50%);
 	text-align: center;
@@ -376,7 +378,7 @@ nav {
 /* Character at bottom */
 .character-container {
 	position: absolute;
-	bottom: -15%;
+	bottom: 100px;
 	left: 50%;
 	transform: translateX(-50%);
 	width: 150px;
@@ -396,8 +398,7 @@ nav {
 	transition: none;
 }
 .character-area:hover {
-	background-color: rgba(0, 0, 0, 0.1);
-	border-radius: 50%;
+	background-color: transparent;
 }
 
 /* Posiciones de cada área del cuerpo */
@@ -439,45 +440,27 @@ nav {
 	height: 180px;
 }
 
-/* Círculos de hover */
-.hover-circle {
+/* Circles */
+.cursor-follower {
 	position: absolute;
-	background-color: rgba(0, 0, 0, 0.8);
+	width: 60px;
+	height: 60px;
+	background: rgba(0, 0, 0, 0.85);
 	color: white;
-	width: 140px;
-	height: 140px;
+	border-radius: 50%;
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	border-radius: 50%;
 	font-family: "Outfit", sans-serif;
 	font-size: 16px;
-	font-weight: 500;
-	z-index: 15;
+	font-weight: 600;
 	pointer-events: none;
-	left: 50%;
+	transform: translate(-50%, -50%);
+	z-index: 30;
+	transition: all 0.15s ease-out;
 	text-align: center;
 	line-height: 1.2;
-}
-
-.about-circle {
-	top: 10px;
-	transform: translateX(-50%);
-}
-
-.skills-circle {
-	top: 90px;
-	transform: translateX(-50%);
-}
-
-.projects-circle {
-	top: 100px;
-	transform: translateX(-50%);
-}
-
-.objectives-circle {
-	top: 260px;
-	transform: translateX(-50%);
+	padding: 10px;
 }
 
 /* Click instruction */
@@ -496,11 +479,13 @@ nav {
 	font-weight: 600;
 }
 
+/* Arrow */
 .arrow-pointer {
 	position: absolute;
 	top: 30px;
 	left: 120px;
 }
+
 /* About Me Section */
 .about-section {
 	min-height: 100vh;

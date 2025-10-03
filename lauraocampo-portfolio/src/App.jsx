@@ -20,6 +20,8 @@ function App() {
 	const heroSectionRef = useRef(null);
 	const clickInstructionRef = useRef(null);
 	const [hoveredPart, setHoveredPart] = useState(null);
+	const [cursorPosition, setCursorPosition] = useState({ x: 0, y: 0 });
+	const [isOverCharacter, setIsOverCharacter] = useState(false);
 
 	useEffect(() => {
 		// Hacer las nubes arrastrables
@@ -66,13 +68,14 @@ function App() {
 				if (heroTextRef.current) {
 					let textOpacity = 0;
 
-					if (progress >= 0.1 && progress <= 0.25) {
+					if (progress >= 0.05 && progress <= 0.12) {
+						// Ventana MUY corta
 						textOpacity = 1;
-					} else if (progress < 0.1) {
-						textOpacity = progress * 10;
-					} else if (progress > 0.25) {
-						// DESAPARECE después del 25%
-						textOpacity = Math.max(1 - (progress - 0.25) * 4, 0);
+					} else if (progress < 0.05) {
+						textOpacity = progress * 20; // Aparece más rápido
+					} else if (progress > 0.12) {
+						// DESAPARECE RÁPIDO después del 12%
+						textOpacity = Math.max(1 - (progress - 0.12) * 10, 0);
 					}
 
 					gsap.to(heroTextRef.current, {
@@ -82,14 +85,14 @@ function App() {
 					});
 				}
 
-				// "Click on me" aparece después de que el texto grande desaparezca
+				// "Click on me" aparece después
 				if (clickInstructionRef.current) {
 					let clickOpacity = 0;
 
-					if (progress >= 0.35 && progress <= 0.8) {
+					if (progress >= 0.18 && progress <= 0.8) {
 						clickOpacity = 1;
-					} else if (progress < 0.35 && progress >= 0.3) {
-						clickOpacity = (progress - 0.3) * 20;
+					} else if (progress < 0.18 && progress >= 0.15) {
+						clickOpacity = (progress - 0.15) * 33;
 					}
 
 					gsap.to(clickInstructionRef.current, {
@@ -106,7 +109,29 @@ function App() {
 	}, []);
 
 	const handlePartClick = (section) => {
-		document.getElementById(section)?.scrollIntoView({ behavior: "smooth" });
+		// Fade out effect
+		gsap.to(heroSectionRef.current, {
+			opacity: 0,
+			duration: 0.5,
+			onComplete: () => {
+				document.getElementById(section)?.scrollIntoView({ behavior: "smooth" });
+				// Fade back in
+				setTimeout(() => {
+					gsap.to(heroSectionRef.current, {
+						opacity: 1,
+						duration: 0.5,
+					});
+				}, 300);
+			},
+		});
+	};
+
+	const handleMouseMove = (e) => {
+		const rect = e.currentTarget.getBoundingClientRect();
+		setCursorPosition({
+			x: e.clientX - rect.left,
+			y: e.clientY - rect.top,
+		});
 	};
 
 	return (
@@ -134,19 +159,33 @@ function App() {
 						</h1>
 					</div>
 
-					<div className="character-container">
+					<div
+						className="character-container"
+						onMouseMove={handleMouseMove}
+						onMouseEnter={() => setIsOverCharacter(true)}
+						onMouseLeave={() => {
+							setIsOverCharacter(false);
+							setHoveredPart(null);
+						}}
+					>
 						<img src={Character} alt="character" className="character" />
 
 						{/* Áreas interactivas */}
-						<div className="character-area head-area" onMouseEnter={() => setHoveredPart("about")} onMouseLeave={() => setHoveredPart(null)} onClick={() => handlePartClick("about")} />
-						<div className="character-area chest-area" onMouseEnter={() => setHoveredPart("skills")} onMouseLeave={() => setHoveredPart(null)} onClick={() => handlePartClick("skills")} />
-						<div className="character-area left-arm-area" onMouseEnter={() => setHoveredPart("projects")} onMouseLeave={() => setHoveredPart(null)} onClick={() => handlePartClick("projects")} />
-						<div className="character-area right-arm-area" onMouseEnter={() => setHoveredPart("projects")} onMouseLeave={() => setHoveredPart(null)} onClick={() => handlePartClick("projects")} />
-						<div className="character-area legs-area" onMouseEnter={() => setHoveredPart("objectives")} onMouseLeave={() => setHoveredPart(null)} onClick={() => handlePartClick("objective")} />
+						<div className="character-area head-area" onMouseEnter={() => setHoveredPart("about")} onClick={() => handlePartClick("about")} />
+						<div className="character-area chest-area" onMouseEnter={() => setHoveredPart("skills")} onClick={() => handlePartClick("skills")} />
+						<div className="character-area left-arm-area" onMouseEnter={() => setHoveredPart("projects")} onClick={() => handlePartClick("projects")} />
+						<div className="character-area right-arm-area" onMouseEnter={() => setHoveredPart("projects")} onClick={() => handlePartClick("projects")} />
+						<div className="character-area legs-area" onMouseEnter={() => setHoveredPart("objectives")} onClick={() => handlePartClick("objective")} />
 
-						{/* Círculos de hover */}
-						{hoveredPart && (
-							<div className={`hover-circle ${hoveredPart}-circle`}>
+						{/* Círculo que sigue el cursor */}
+						{isOverCharacter && hoveredPart && (
+							<div
+								className="cursor-follower"
+								style={{
+									left: `${cursorPosition.x}px`,
+									top: `${cursorPosition.y}px`,
+								}}
+							>
 								{hoveredPart === "about" && "About me"}
 								{hoveredPart === "skills" && "Skills & Tools"}
 								{hoveredPart === "projects" && "Projects"}
@@ -158,8 +197,8 @@ function App() {
 						<div ref={clickInstructionRef} className="click-instruction">
 							<p>Click on me</p>
 							<svg className="arrow-pointer" width="100" height="80" viewBox="0 0 100 80">
-								<path d="M 10 10 Q 40 5, 60 25 T 85 55" stroke="black" strokeWidth="2" fill="none" />
-								<polygon points="85,55 80,50 90,48" fill="black" />
+								<path d="M 10 10 Q 40 5, 60 25 T 85 55" stroke="black" strokeWidth="3" fill="none" />
+								<polygon points="85,55 78,52 88,48" fill="black" />
 							</svg>
 						</div>
 					</div>
