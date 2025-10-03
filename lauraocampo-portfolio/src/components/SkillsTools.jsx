@@ -3,7 +3,9 @@ import { designerSkills } from "../../constants/index.js";
 function SkillsTools() {
 	return (
 		<section id="skills" className="skills-section">
-			<h2 className="skills-main-title">Skills & Tools</h2>
+			<div className="skills-header">
+				<h2 className="skills-main-title">Skills & Tools</h2>
+			</div>
 
 			<div className="skills-container">
 				{/* Developer Column */}
