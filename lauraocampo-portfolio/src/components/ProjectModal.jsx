@@ -28,16 +28,18 @@ function ProjectModal({ project, onClose }) {
 					</div>
 					<p className="modal-description">{project.fullDescription}</p>
 					<a href={project.websiteUrl} target="_blank" rel="noopener noreferrer" className="visit-website-btn">
-						Visit Project
-						<svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-							<path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="white" strokeWidth="2" strokeLinecap="round" />
-						</svg>
+						<span>Visit Project</span>
+						<div className="arrow-circle-modal">
+							<svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+								<path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="white" strokeWidth="2" strokeLinecap="round" />
+							</svg>
+						</div>
 					</a>
 				</div>
 
-				<div className="modal-images">
+				<div className={`modal-images ${project.type === "App" || project.type === "Web-App" ? "app-grid" : ""}`}>
 					{project.screenshots.map((screenshot, index) => (
-						<img key={index} src={screenshot} alt={`${project.title} screenshot ${index + 1}`} className="modal-image" />
+						<img key={index} src={screenshot} alt={`${project.title} screenshot ${index + 1}`} className={`modal-image ${project.type === "App" || project.type === "Web-App" ? "app-screenshot" : ""}`} />
 					))}
 				</div>
 			</div>
