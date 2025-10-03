@@ -400,6 +400,10 @@ nav {
 .character-area:hover {
 	background-color: transparent;
 }
+.character-area.disabled {
+	cursor: default;
+	pointer-events: none;
+}
 
 /* Posiciones de cada área del cuerpo */
 .head-area {

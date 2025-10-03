@@ -22,6 +22,7 @@ function App() {
 	const [hoveredPart, setHoveredPart] = useState(null);
 	const [cursorPosition, setCursorPosition] = useState({ x: 0, y: 0 });
 	const [isOverCharacter, setIsOverCharacter] = useState(false);
+	const [interactiveEnabled, setInteractiveEnabled] = useState(false);
 
 	useEffect(() => {
 		// Hacer las nubes arrastrables
@@ -69,12 +70,10 @@ function App() {
 					let textOpacity = 0;
 
 					if (progress >= 0.05 && progress <= 0.12) {
-						// Ventana MUY corta
 						textOpacity = 1;
 					} else if (progress < 0.05) {
-						textOpacity = progress * 20; // Aparece más rápido
+						textOpacity = progress * 20;
 					} else if (progress > 0.12) {
-						// DESAPARECE RÁPIDO después del 12%
 						textOpacity = Math.max(1 - (progress - 0.12) * 10, 0);
 					}
 
@@ -85,14 +84,18 @@ function App() {
 					});
 				}
 
-				// "Click on me" aparece después
+				// "Click on me" aparece y ACTIVA la interactividad
 				if (clickInstructionRef.current) {
 					let clickOpacity = 0;
 
 					if (progress >= 0.18 && progress <= 0.8) {
 						clickOpacity = 1;
-					} else if (progress < 0.18 && progress >= 0.15) {
-						clickOpacity = (progress - 0.15) * 33;
+						setInteractiveEnabled(true);
+					} else {
+						setInteractiveEnabled(false);
+						if (progress < 0.18 && progress >= 0.15) {
+							clickOpacity = (progress - 0.15) * 33;
+						}
 					}
 
 					gsap.to(clickInstructionRef.current, {
@@ -109,13 +112,13 @@ function App() {
 	}, []);
 
 	const handlePartClick = (section) => {
-		// Fade out effect
+		if (!interactiveEnabled) return;
+
 		gsap.to(heroSectionRef.current, {
 			opacity: 0,
 			duration: 0.5,
 			onComplete: () => {
 				document.getElementById(section)?.scrollIntoView({ behavior: "smooth" });
-				// Fade back in
 				setTimeout(() => {
 					gsap.to(heroSectionRef.current, {
 						opacity: 1,
@@ -127,11 +130,17 @@ function App() {
 	};
 
 	const handleMouseMove = (e) => {
+		if (!interactiveEnabled) return;
 		const rect = e.currentTarget.getBoundingClientRect();
 		setCursorPosition({
 			x: e.clientX - rect.left,
 			y: e.clientY - rect.top,
 		});
+	};
+
+	const handleMouseEnter = (part) => {
+		if (!interactiveEnabled) return;
+		setHoveredPart(part);
 	};
 
 	return (
@@ -162,7 +171,7 @@ function App() {
 					<div
 						className="character-container"
 						onMouseMove={handleMouseMove}
-						onMouseEnter={() => setIsOverCharacter(true)}
+						onMouseEnter={() => interactiveEnabled && setIsOverCharacter(true)}
 						onMouseLeave={() => {
 							setIsOverCharacter(false);
 							setHoveredPart(null);
@@ -170,15 +179,13 @@ function App() {
 					>
 						<img src={Character} alt="character" className="character" />
 
-						{/* Áreas interactivas */}
-						<div className="character-area head-area" onMouseEnter={() => setHoveredPart("about")} onClick={() => handlePartClick("about")} />
-						<div className="character-area chest-area" onMouseEnter={() => setHoveredPart("skills")} onClick={() => handlePartClick("skills")} />
-						<div className="character-area left-arm-area" onMouseEnter={() => setHoveredPart("projects")} onClick={() => handlePartClick("projects")} />
-						<div className="character-area right-arm-area" onMouseEnter={() => setHoveredPart("projects")} onClick={() => handlePartClick("projects")} />
-						<div className="character-area legs-area" onMouseEnter={() => setHoveredPart("objectives")} onClick={() => handlePartClick("objective")} />
+						<div className={`character-area head-area ${!interactiveEnabled ? "disabled" : ""}`} onMouseEnter={() => handleMouseEnter("about")} onClick={() => handlePartClick("about")} />
+						<div className={`character-area chest-area ${!interactiveEnabled ? "disabled" : ""}`} onMouseEnter={() => handleMouseEnter("skills")} onClick={() => handlePartClick("skills")} />
+						<div className={`character-area left-arm-area ${!interactiveEnabled ? "disabled" : ""}`} onMouseEnter={() => handleMouseEnter("projects")} onClick={() => handlePartClick("projects")} />
+						<div className={`character-area right-arm-area ${!interactiveEnabled ? "disabled" : ""}`} onMouseEnter={() => handleMouseEnter("projects")} onClick={() => handlePartClick("projects")} />
+						<div className={`character-area legs-area ${!interactiveEnabled ? "disabled" : ""}`} onMouseEnter={() => handleMouseEnter("objectives")} onClick={() => handlePartClick("objective")} />
 
-						{/* Círculo que sigue el cursor */}
-						{isOverCharacter && hoveredPart && (
+						{interactiveEnabled && isOverCharacter && hoveredPart && (
 							<div
 								className="cursor-follower"
 								style={{
@@ -193,7 +200,6 @@ function App() {
 							</div>
 						)}
 
-						{/* Click on me text */}
 						<div ref={clickInstructionRef} className="click-instruction">
 							<p>Click on me</p>
 							<svg className="arrow-pointer" width="100" height="80" viewBox="0 0 100 80">
