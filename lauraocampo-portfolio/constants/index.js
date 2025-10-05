@@ -19,6 +19,8 @@ export const projects = [
 		websiteUrl: "https://www.iness-coach.com/",
 		tags: ["HTML", "CSS", "Javascript", "Analytics", "SEO"],
 		screenshots: ["/Projects/InessCoach.png", "/Projects/InessCoach-2.png", "/Projects/InessCoach-3.png", "/Projects/InessCoach-4.png"],
+	},
+	{
 		year: "2024",
 		type: "Website",
 		title: "Unix Creative Studio",
@@ -28,7 +30,7 @@ export const projects = [
 		image: "/images/Projects/UnixCreativeStudio.png",
 		websiteUrl: "https://unixcreativestudio.com/",
 		tags: ["HTML", "CSS", "Javascript", "Analytics", "SEO", "Hotjar"],
-		screenshots: ["/images/P/UnixCreativeStudio.png", "/Projects/Unix-2.png", "/Projects/Unix-3.png", "/Projects/Unix-4.png"],
+		screenshots: ["/Projects/UnixCreativeStudio.png", "/Projects/Unix-2.png", "/Projects/Unix-3.png", "/Projects/Unix-4.png"],
 	},
 	{
 		year: "2023",
