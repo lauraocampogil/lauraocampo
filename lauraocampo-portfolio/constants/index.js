@@ -52,7 +52,7 @@ export const projects = [
 		fullDescription:
 			"FC Explorer is an innovative mobile application that allows football enthusiasts to discover, visit, and rate football stadiums across Belgium. The app includes interactive maps, detailed stadium information, and a community voting system.",
 		image: "/src/assets/images/Projects/FcExplorer-phone.png",
-		websiteUrl: "#",
+		websiteUrl: "https://appetize.io/app/b_xz5pxmnbqmrqwudqpe4eljdj5m",
 		tags: ["Swift", "Database", "MapKit", "CoreData"],
 		screenshots: ["/src/assets/images/Projects/FcExplorer-1.png", "/src/assets/images/Projects/FcExplorer-2.png", "/src/assets/images/Projects/FcExplorer-3.png", "/src/assets/images/Projects/FcExplorer-4.png"],
 	},
