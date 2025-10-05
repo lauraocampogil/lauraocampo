@@ -15,22 +15,20 @@ export const projects = [
 		description: "Sports psychology coaching for young footballers, developing confidence and mental performance through professional, psychology-based training programs.",
 		fullDescription:
 			"Sports psychology coaching for young footballers, developing confidence and mental performance through professional, psychology-based training programs. A comprehensive platform designed to help young athletes build mental resilience and reach their full potential.",
-		image: "/src/assets/images/Projects/InessCoach.png",
+		image: "/Projects/InessCoach.png",
 		websiteUrl: "https://www.iness-coach.com/",
 		tags: ["HTML", "CSS", "Javascript", "Analytics", "SEO"],
-		screenshots: ["/src/assets/images/Projects/InessCoach.png", "/src/assets/images/Projects/InessCoach-2.png", "/src/assets/images/Projects/InessCoach-3.png", "/src/assets/images/Projects/InessCoach-4.png"],
-	},
-	{
+		screenshots: ["/Projects/InessCoach.png", "/Projects/InessCoach-2.png", "/Projects/InessCoach-3.png", "/Projects/InessCoach-4.png"],
 		year: "2024",
 		type: "Website",
 		title: "Unix Creative Studio",
 		description: "Unix Creative Studio is my own website agency. It helps mostly business owners to sell more by enhancing their presence with their website and SEO optimization.",
 		fullDescription:
 			"Unix Creative Studio is my own website agency specialized in creating high-converting websites for businesses. We focus on enhancing online presence through modern web design, SEO optimization, and digital marketing strategies.",
-		image: "/src/assets/images/Projects/UnixCreativeStudio.png",
+		image: "/images/Projects/UnixCreativeStudio.png",
 		websiteUrl: "https://unixcreativestudio.com/",
 		tags: ["HTML", "CSS", "Javascript", "Analytics", "SEO", "Hotjar"],
-		screenshots: ["/src/assets/images/Projects/UnixCreativeStudio.png", "/src/assets/images/Projects/Unix-2.png", "/src/assets/images/Projects/Unix-3.png", "/src/assets/images/Projects/Unix-4.png"],
+		screenshots: ["/images/P/UnixCreativeStudio.png", "/Projects/Unix-2.png", "/Projects/Unix-3.png", "/Projects/Unix-4.png"],
 	},
 	{
 		year: "2023",
@@ -39,10 +37,10 @@ export const projects = [
 		description: "Huis Van Vrede is an organization in the heart of Brussel who helps people in need. I have created this website to maximize their online presence for their partners.",
 		fullDescription:
 			"Huis Van Vrede is a non-profit organization in Brussels dedicated to helping people in need. This website was created to maximize their online visibility and make it easier for partners and donors to connect with their mission.",
-		image: "/src/assets/images/Projects/HuisVanVrede.png",
+		image: "/Projects/HuisVanVrede.png",
 		websiteUrl: "https://lauraocampogil.github.io/website-Huis-van-vrede/",
 		tags: ["HTML", "CSS", "Javascript"],
-		screenshots: ["/src/assets/images/Projects/HuisVanVrede.png", "/src/assets/images/Projects/HuisVan-2.png", "/src/assets/images/Projects/HuisVan-3.png", "/src/assets/images/Projects/HuisVan-4.png"],
+		screenshots: ["/Projects/HuisVanVrede.png", "/Projects/HuisVan-2.png", "/Projects/HuisVan-3.png", "/Projects/HuisVan-4.png"],
 	},
 	{
 		year: "2025",
@@ -51,10 +49,10 @@ export const projects = [
 		description: "FC Explorer is a football stadium and club discovery app for finding, visiting, and voting on stadiums across Belgium.",
 		fullDescription:
 			"FC Explorer is an innovative mobile application that allows football enthusiasts to discover, visit, and rate football stadiums across Belgium. The app includes interactive maps, detailed stadium information, and a community voting system.",
-		image: "/src/assets/images/Projects/FcExplorer-phone.png",
+		image: "/Projects/FcExplorer-phone.png",
 		websiteUrl: "https://appetize.io/app/b_xz5pxmnbqmrqwudqpe4eljdj5m",
 		tags: ["Swift", "Database", "MapKit", "CoreData"],
-		screenshots: ["/src/assets/images/Projects/FcExplorer-1.png", "/src/assets/images/Projects/FcExplorer-2.png", "/src/assets/images/Projects/FcExplorer-3.png", "/src/assets/images/Projects/FcExplorer-4.png"],
+		screenshots: ["/Projects/FcExplorer-1.png", "/Projects/FcExplorer-2.png", "/Projects/FcExplorer-3.png", "/Projects/FcExplorer-4.png"],
 	},
 	{
 		year: "2025",
@@ -62,10 +60,10 @@ export const projects = [
 		title: "BruZelle",
 		description: "BruZelle is an organisation in Belgium who helps mostly women with their menstruation and hygiene products.",
 		fullDescription: "BruZelle is a Belgian organization dedicated to supporting women by providing access to menstruation and hygiene products. This web application helps manage donations, track inventory, and connect with those in need.",
-		image: "/src/assets/images/Projects/BruZelle-phone.png",
+		image: "/Projects/BruZelle-phone.png",
 		websiteUrl: "https://ehb-mct.github.io/FPIII-BruZelle-front-end/intro.html",
 		tags: ["HTML", "CSS", "Javascript", "Database"],
-		screenshots: ["/src/assets/images/Projects/BruZelle.png", "/src/assets/images/Projects/BruZelle-2.png", "/src/assets/images/Projects/BruZelle-3.png", "/src/assets/images/Projects/BruZelle-4.png"],
+		screenshots: ["/Projects/BruZelle.png", "/Projects/BruZelle-2.png", "/Projects/BruZelle-3.png", "/Projects/BruZelle-4.png"],
 	},
 	{
 		year: "2025",
@@ -74,10 +72,10 @@ export const projects = [
 		description: "An interactive portfolio showcasing reimagined fairytales through diverse artistic styles, featuring classics like Peter Pan, Alice in Wonderland, and Coraline with parallax storytelling experiences.",
 		fullDescription:
 			"An immersive interactive portfolio that reimagines classic fairytales through modern artistic interpretations. Features parallax scrolling, interactive animations, and a unique storytelling experience for each tale including Peter Pan, Alice in Wonderland, and Coraline.",
-		image: "/src/assets/images/Projects/Fairytale-1.png",
+		image: "/Projects/Fairytale-1.png",
 		websiteUrl: "https://ehb-mct.github.io/cp-frontend-lauraocampogil/#/makingof",
 		tags: ["React", "CSS", "Framer Motion", "Vue"],
-		screenshots: ["/src/assets/images/Projects/Fairytale-1.png", "/src/assets/images/Projects/Fairytale-2.png", "/src/assets/images/Projects/Fairytale-3.png", "/src/assets/images/Projects/Fairytale-4.png"],
+		screenshots: ["/Projects/Fairytale-1.png", "/Projects/Fairytale-2.png", "/Projects/Fairytale-3.png", "/Projects/Fairytale-4.png"],
 	},
 ];
 
