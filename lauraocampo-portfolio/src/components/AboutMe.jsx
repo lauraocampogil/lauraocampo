@@ -1,13 +1,31 @@
+import { useState, useRef } from "react";
+import ImageTrail from "/src/components/ImageTrail.jsx";
 import Head from "../assets/images/Illustrations/Hoofd-mannequin.png";
-
+import Me from "../assets/images/Me/hoverme.jpg";
 function AboutMe() {
+	const [trailKey, setTrailKey] = useState(0);
+	const [isHovering, setIsHovering] = useState(false);
+	const handleMouseEnter = () => {
+		setIsHovering(true);
+		setTrailKey((prev) => prev + 1); // Reset the trail on each hover
+	};
+
+	const handleMouseLeave = () => {
+		setIsHovering(false);
+	};
 	return (
 		<section id="about" className="about-section">
 			<div className="about-container">
 				<div className="about-left">
 					<h2 className="about-title">About Me</h2>
-					<div className="about-image">
+					<div className="about-image" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
 						<img src={Head} alt="head" className="head" />
+
+						{isHovering && (
+							<div className="image-trail-container">
+								<ImageTrail key={trailKey} items={[Me]} />
+							</div>
+						)}
 					</div>
 				</div>
 
